@@ -1,0 +1,40 @@
+<% include partials/header.ejs %>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (customer) { %>
+        <form class="add-customer-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="first-name">First Name</label>
+                    <input type="text" class="form-control" name="first_name" id="first-name" value="<%= customer.first_name %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" class="form-control" name="last_name" id="last-name" value="<%= customer.last_name %>" required>
+                </div>
+                <div class="form-group col-md-4">
+
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="number">Number</label>
+                    <input type="text" class="form-control" name="number" id="number" placeholder="Phone Number" value="<%= customer.phn_number %>" required>
+                </div>
+                <div class="form-group col-md-6">
+                        <label for="email">Emai Id</label>
+                    <input type="email" class="form-control" name="emailid" id="emailid" placeholder="Email Id" value="<%= customer.email_id %>"required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update Customer</button>
+        </form>
+    <% } else { %>
+        <p class="text-center">Customer Not Found. Go <a href="/add">here</a> to add customers.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>

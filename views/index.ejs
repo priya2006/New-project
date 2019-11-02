@@ -1,0 +1,46 @@
+<% include partials/header.ejs %>
+    <div class="table-wrapper">
+        <% if (customers.length > 0) {%>
+            <div class="container">
+            <table class="table table-hovered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Check In Date</th>
+                        <th scope="col">Check Out Date</th>
+                        <th scope="col">Email Id</th>
+                        <th scope="col">PhoneNumber</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% customers.forEach((customer, index) => { %>
+                        <tr>
+                            <th scope="row"><%= customer.id %></th>
+                            <td><img src="/assets/img/<%= customer.image %>" class="rounded-circle customer-img" alt=""></td>
+                            <td><%= customer.first_name %></td>
+                            <td><%= customer.last_name %></td>
+                            <td><%= customer.checkin_date %></td>
+                            <td><%= customer.checkout_date %></td>
+                            <td><%= customer.email_id %></td>
+                            <td><%= customer.phn_number %></td>
+                            <td>@<%= customer.user_name %></td>
+                            <td>
+                                <a href="/edit/<%= customer.id %>" target="_self" rel="noopener" class="btn btn-sm btn-success">Edit</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+            </div>
+        <% } else { %>
+            <p class="text-center">No Customers are found. Go <a href="/add" >here</a> to add customers.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>
