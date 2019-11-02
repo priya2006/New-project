@@ -1,1 +1,1 @@
-"# node-mysql-crud-app" 
+Project based on node and mysql!
